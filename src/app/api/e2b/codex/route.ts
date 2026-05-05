@@ -240,7 +240,7 @@ export async function POST(req: Request): Promise<Response> {
         BLOCKCHAIN_BUDDIES_URL:
           process.env.BLOCKCHAIN_BUDDIES_URL ??
           process.env.NEXT_PUBLIC_SITE_URL ??
-          "https://buddies.openclawd.biz",
+          "https://buddies.solanaclawd.com",
         CODEX_API_KEY: codexApiKey ?? "",
         OPENAI_API_KEY: process.env.OPENAI_API_KEY ?? codexApiKey ?? "",
       },

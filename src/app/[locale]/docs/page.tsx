@@ -166,7 +166,7 @@ export default function DocsPage() {
             />
             <p className="text-sm text-muted-2">
               The flow is OAuth 2.0 + PKCE: the CLI opens your browser, you sign
-              in with Clerk on <code>accounts.buddies.openclawd.biz</code>, and the
+              in with Clerk on <code>clerk.solanaclawd.com</code>, and the
               browser redirects to a one-shot localhost listener with the
               authorization code. The CLI exchanges it for a token set and
               stores it in the keychain. No secrets touch disk.
@@ -210,7 +210,7 @@ export default function DocsPage() {
               Drop a pet into <code>~/.openclawd/buddies/&lt;slug&gt;/</code>.
               Equivalent to{" "}
               <code>
-                curl -sSf https://buddies.openclawd.biz/install/&lt;slug&gt; | sh
+                curl -sSf https://buddies.solanaclawd.com/install/&lt;slug&gt; | sh
               </code>
               .
             </p>
@@ -473,7 +473,7 @@ export default function DocsPage() {
             <ul className="ml-6 list-disc space-y-1 text-muted-2">
               <li>
                 <code>BLOCKCHAIN_BUDDIES_URL</code>: base URL, default{" "}
-                <code>https://buddies.openclawd.biz</code>
+                <code>https://buddies.solanaclawd.com</code>
               </li>
               <li>
                 <code>BLOCKCHAIN_BUDDIES_CLERK_ISSUER</code>: OAuth issuer, default{" "}

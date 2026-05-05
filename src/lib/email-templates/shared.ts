@@ -3,7 +3,7 @@ import { defaultLocale, type Locale, localizePath } from "@/i18n/config";
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.BUDDIES_SITE_URL ??
-  "https://buddies.openclawd.biz";
+  "https://buddies.solanaclawd.com";
 
 export function normalizeLocale(locale: Locale | null | undefined): Locale {
   return locale ?? defaultLocale;

@@ -162,7 +162,7 @@ blockchain-buddies submit ~/.openclawd/buddies
 
 ## Environment
 
-The CLI defaults to `https://buddies.openclawd.biz`.
+The CLI defaults to `https://buddies.solanaclawd.com`.
 
 | Variable | Purpose |
 | --- | --- |

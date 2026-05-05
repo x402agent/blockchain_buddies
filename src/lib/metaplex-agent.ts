@@ -91,7 +91,7 @@ export async function mintBlockchainBuddy(
   const services = [
     {
       name: "web",
-      endpoint: "https://buddies.openclawd.biz/birth",
+      endpoint: "https://buddies.solanaclawd.com/birth",
     },
     {
       name: "OpenClawd",

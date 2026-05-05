@@ -2,7 +2,7 @@
   "name": "@openclawdsolana/blockchain-buddies",
   "version": "0.1.0",
   "description": "OpenClawd Blockchain Buddies CLI with Metaplex, OpenAI Codex, and Petdex-compatible integrations.",
-  "homepage": "https://buddies.openclawd.biz",
+  "homepage": "https://buddies.solanaclawd.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clawdsolana/OpenClawd.git",

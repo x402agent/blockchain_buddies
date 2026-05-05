@@ -79,8 +79,8 @@ export function InstallCommand({ slug, displayName }: InstallCommandProps) {
   const isWin = platform === "windows";
   const cliCmd = `npx @openclawdsolana/blockchain-buddies install ${slug}`;
   const shellCmd = isWin
-    ? `irm https://buddies.openclawd.biz/install/${slug}?platform=ps1 | iex`
-    : `curl -sSf https://buddies.openclawd.biz/install/${slug} | sh`;
+    ? `irm https://buddies.solanaclawd.com/install/${slug}?platform=ps1 | iex`
+    : `curl -sSf https://buddies.solanaclawd.com/install/${slug} | sh`;
   const command = tab === "cli" ? cliCmd : shellCmd;
   const shellLabel = isWin ? "PowerShell" : "Curl";
 

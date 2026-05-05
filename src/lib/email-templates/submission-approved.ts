@@ -19,7 +19,7 @@ export function renderSubmissionApprovedEmail(
   const current = normalizeLocale(locale);
   const pageUrl = petdexUrl(current, `/pets/${vars.petSlug}`);
   const myPetsUrl = petdexUrl(current, "/my-pets");
-  const installCmd = `curl -sSf https://buddies.openclawd.biz/install/${vars.petSlug} | sh`;
+  const installCmd = `curl -sSf https://buddies.solanaclawd.com/install/${vars.petSlug} | sh`;
   const copy =
     current === "es"
       ? {

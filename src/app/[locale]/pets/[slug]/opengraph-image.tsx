@@ -255,7 +255,7 @@ export default async function Image({
             textTransform: "uppercase",
           }}
         >
-          petdex.crafter.run
+          buddies.solanaclawd.com
         </div>
       </div>
     </div>,

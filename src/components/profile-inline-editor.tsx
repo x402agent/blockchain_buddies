@@ -96,7 +96,7 @@ export function ProfileInlineEditor({
                   Edit your profile
                 </h2>
                 <p className="mt-1 text-xs text-muted-3">
-                  Lives at petdex.crafter.run/u/{handle}. Changes go live
+                  Lives at buddies.solanaclawd.com/u/{handle}. Changes go live
                   instantly — no admin review.
                 </p>
               </div>

@@ -57,7 +57,7 @@ export function posixInstallScript(pet: ResolvedPet): string {
   return [
     "#!/bin/sh",
     "# OpenClawd Buddies installer",
-    `# https://buddies.openclawd.biz/pets/${safeSlug}`,
+    `# https://buddies.solanaclawd.com/pets/${safeSlug}`,
     "",
     "set -e",
     "",
@@ -73,7 +73,7 @@ export function posixInstallScript(pet: ResolvedPet): string {
       {
         source: "blockchain-buddies",
         platform: "openclawd",
-        siteUrl: "https://buddies.openclawd.biz",
+        siteUrl: "https://buddies.solanaclawd.com",
         slug: safeSlug,
         displayName: safeName,
         petJsonUrl,
@@ -106,7 +106,7 @@ export function powershellInstallScript(pet: ResolvedPet): string {
   const safeName = String(displayName).replace(/[\r\n"]+/g, " ");
   return [
     "# OpenClawd Buddies installer",
-    `# https://buddies.openclawd.biz/pets/${safeSlug}`,
+    `# https://buddies.solanaclawd.com/pets/${safeSlug}`,
     "",
     "$ErrorActionPreference = 'Stop'",
     `$slug = ${q(safeSlug)}`,
@@ -122,7 +122,7 @@ export function powershellInstallScript(pet: ResolvedPet): string {
         {
           source: "blockchain-buddies",
           platform: "openclawd",
-          siteUrl: "https://buddies.openclawd.biz",
+          siteUrl: "https://buddies.solanaclawd.com",
           slug: safeSlug,
           displayName: safeName,
           petJsonUrl,
@@ -151,7 +151,7 @@ export function posixNotFoundScript(slug: string): string {
   return [
     "#!/bin/sh",
     `echo "Buddy '${safe}' not found in OpenClawd Buddies." >&2`,
-    'echo "Browse buddies at https://buddies.openclawd.biz" >&2',
+    'echo "Browse buddies at https://buddies.solanaclawd.com" >&2',
     "exit 1",
     "",
   ].join("\n");
@@ -161,7 +161,7 @@ export function powershellNotFoundScript(slug: string): string {
   const safe = String(slug).replace(/[^a-z0-9-]/g, "");
   return [
     `Write-Error "Buddy '${safe}' not found in OpenClawd Buddies."`,
-    'Write-Error "Browse buddies at https://buddies.openclawd.biz"',
+    'Write-Error "Browse buddies at https://buddies.solanaclawd.com"',
     "exit 1",
     "",
   ].join("\n");

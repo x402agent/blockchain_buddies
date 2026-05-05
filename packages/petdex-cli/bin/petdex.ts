@@ -22,7 +22,7 @@ const SITE_URL =
   process.env.BLOCKCHAIN_BUDDIES_URL ??
   process.env.BUDDIES_URL ??
   process.env.PETDEX_URL ??
-  "https://buddies.openclawd.biz";
+  "https://buddies.solanaclawd.com";
 const CLERK_ISSUER =
   process.env.BLOCKCHAIN_BUDDIES_CLERK_ISSUER ??
   process.env.CLERK_CLI_ISSUER ??

@@ -16,7 +16,7 @@ import {
 import { useTranslations } from "next-intl";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.openclawd.biz";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.solanaclawd.com";
 
 export type PetActionMenuPet = {
   slug: string;

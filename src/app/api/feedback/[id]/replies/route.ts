@@ -209,7 +209,7 @@ export async function POST(
           statusLabel: row.status,
           originalMessage: row.message,
           replyBody: text,
-          threadUrl: `https://buddies.openclawd.biz/admin/feedback?status=all&focus=${id}`,
+          threadUrl: `https://buddies.solanaclawd.com/admin/feedback?status=all&focus=${id}`,
           excerpt: `${excerpt}${row.message.length > 80 ? "…" : ""}`,
         });
         await resend.emails.send({

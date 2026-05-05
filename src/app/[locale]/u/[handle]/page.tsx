@@ -28,7 +28,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const dynamic = "force-dynamic";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.openclawd.biz";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.solanaclawd.com";
 
 type PageProps = { params: Promise<{ handle: string; locale: string }> };
 

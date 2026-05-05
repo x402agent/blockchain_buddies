@@ -7,7 +7,7 @@
 import { neon } from "@neondatabase/serverless";
 import { Resend } from "resend";
 
-const PROD_URL = "https://petdex.crafter.run";
+const PROD_URL = "https://buddies.solanaclawd.com";
 const sql = neon(process.env.DATABASE_URL!);
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)

@@ -8,7 +8,7 @@ import { PET_KINDS, type PetKind } from "@/lib/types";
 import { FacetPage } from "@/components/facet-page";
 import { JsonLd } from "@/components/json-ld";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.openclawd.biz";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddies.solanaclawd.com";
 
 type Props = { params: Promise<{ kind: string; locale: string }> };
 
