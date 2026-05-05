@@ -1,4 +1,11 @@
-import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
+import {
+  copyFile,
+  mkdir,
+  readFile,
+  readdir,
+  stat,
+  writeFile,
+} from "node:fs/promises";
 import { homedir } from "node:os";
 import path from "node:path";
 
@@ -29,6 +36,8 @@ const BUDDIES_DIR =
   process.env.OPENCLAWD_BUDDIES_DIR ??
   process.env.BLOCKCHAIN_BUDDIES_DIR ??
   path.join(homedir(), ".openclawd", "buddies");
+const CODEX_PETS_DIR =
+  process.env.CODEX_PETS_DIR ?? path.join(homedir(), ".codex", "pets");
 
 let authClient: ClerkCliAuth | null = null;
 
@@ -89,6 +98,15 @@ async function main() {
     case "list":
       await cmdList();
       break;
+    case "codex":
+      await cmdCodex(args.slice(1));
+      break;
+    case "metaplex":
+      await cmdMetaplex(args.slice(1));
+      break;
+    case "petdex":
+      await cmdPetdex(args.slice(1));
+      break;
     case "version":
     case "--version":
     case "-v":
@@ -120,6 +138,9 @@ function printHelp() {
       `    ${pc.bold("submit")} <path>      Submit a buddy folder, zip, or parent folder (bulk)`,
       `    ${pc.bold("install")} <slug>     Install a buddy into ${BUDDIES_DIR}/<slug>`,
       `    ${pc.bold("list")}               List approved buddies`,
+      `    ${pc.bold("codex")} <cmd>         Sync buddies into OpenAI Codex-compatible pets`,
+      `    ${pc.bold("metaplex")} metadata   Generate Metaplex Agent Registry metadata`,
+      `    ${pc.bold("petdex")} <cmd>        Run Petdex-compatible legacy commands`,
       "",
       `  ${c("Examples")}`,
       `    ${dim("$")} ${CLI_NAME} login`,
@@ -127,6 +148,8 @@ function printHelp() {
       `    ${dim("$")} ${CLI_NAME} submit ~/Downloads/boba.zip     ${dim("# zip file")}`,
       `    ${dim("$")} ${CLI_NAME} submit ${BUDDIES_DIR}            ${dim("# bulk all subfolders")}`,
       `    ${dim("$")} ${CLI_NAME} install boba`,
+      `    ${dim("$")} ${CLI_NAME} codex install boba`,
+      `    ${dim("$")} ${CLI_NAME} metaplex metadata boba --out agent.json`,
       "",
       `  ${dim("Gallery & docs:")} ${pc.underline(SITE_URL)}`,
       "",
@@ -147,6 +170,246 @@ async function cmdLogin() {
   } catch (err) {
     s.stop(pc.red("× login failed"));
     throw err;
+  }
+}
+
+async function cmdCodex(args: string[]) {
+  const action = args[0];
+  if (!action || action === "--help" || action === "-h") {
+    console.log(
+      [
+        "",
+        `  ${pc.bold("OpenAI Codex integration")}`,
+        "",
+        `    ${CLI_NAME} codex install <slug>  Install from Blockchain Buddies and sync to ${CODEX_PETS_DIR}`,
+        `    ${CLI_NAME} codex sync [slug]     Sync one installed buddy, or all buddies, into Codex`,
+        "",
+      ].join("\n"),
+    );
+    return;
+  }
+
+  if (action === "install") {
+    const slug = args[1];
+    if (!slug) {
+      p.cancel(`Usage: ${pc.cyan(`${CLI_NAME} codex install <slug>`)}`);
+      process.exit(1);
+    }
+    await cmdInstall([slug]);
+    await syncBuddyToCodex(slug);
+    return;
+  }
+
+  if (action === "sync") {
+    const slug = args[1];
+    if (slug) {
+      await syncBuddyToCodex(slug);
+      return;
+    }
+    const entries = await readdir(BUDDIES_DIR, { withFileTypes: true }).catch(
+      () => [],
+    );
+    let count = 0;
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      await syncBuddyToCodex(entry.name);
+      count++;
+    }
+    console.log(pc.green("✓ ") + `Synced ${count} buddies into ${CODEX_PETS_DIR}`);
+    return;
+  }
+
+  p.cancel(`Unknown codex command: ${action}`);
+  process.exit(1);
+}
+
+async function syncBuddyToCodex(slug: string): Promise<void> {
+  const sourceDir = path.join(BUDDIES_DIR, slug);
+  const targetDir = path.join(CODEX_PETS_DIR, slug);
+  if (!(await fileExists(path.join(sourceDir, "pet.json")))) {
+    throw new Error(`Buddy is not installed in ${sourceDir}. Run ${CLI_NAME} install ${slug}.`);
+  }
+  await mkdir(targetDir, { recursive: true });
+  await copyFile(path.join(sourceDir, "pet.json"), path.join(targetDir, "pet.json"));
+
+  const sprite = (await fileExists(path.join(sourceDir, "spritesheet.webp")))
+    ? "spritesheet.webp"
+    : "spritesheet.png";
+  if (!(await fileExists(path.join(sourceDir, sprite)))) {
+    throw new Error(`Missing spritesheet for ${slug} in ${sourceDir}`);
+  }
+  await copyFile(path.join(sourceDir, sprite), path.join(targetDir, sprite));
+  await writeFile(
+    path.join(targetDir, "openclawd-codex.json"),
+    `${JSON.stringify(
+      {
+        source: "blockchain-buddies",
+        platform: "openai-codex",
+        openClawdBuddyDir: sourceDir,
+        syncedAt: new Date().toISOString(),
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  console.log(pc.green("✓ ") + `Codex-ready buddy synced to ${pc.cyan(targetDir)}`);
+}
+
+async function cmdMetaplex(args: string[]) {
+  const action = args[0];
+  if (!action || action === "--help" || action === "-h") {
+    console.log(
+      [
+        "",
+        `  ${pc.bold("Metaplex integration")}`,
+        "",
+        `    ${CLI_NAME} metaplex metadata <slug|path> [--out file]`,
+        "",
+        "  Generates offline Agent Registry metadata for a buddy package.",
+        "  It does not mint, sign, or submit Solana transactions.",
+        "",
+      ].join("\n"),
+    );
+    return;
+  }
+  if (action !== "metadata") {
+    p.cancel(`Unknown metaplex command: ${action}`);
+    process.exit(1);
+  }
+
+  const target = args[1];
+  if (!target) {
+    p.cancel(`Usage: ${pc.cyan(`${CLI_NAME} metaplex metadata <slug|path> [--out file]`)}`);
+    process.exit(1);
+  }
+  const outIndex = args.indexOf("--out");
+  const outFile = outIndex >= 0 ? args[outIndex + 1] : undefined;
+  const metadata = await buildMetaplexMetadata(target);
+  const json = `${JSON.stringify(metadata, null, 2)}\n`;
+  if (outFile) {
+    await writeFile(path.resolve(outFile), json);
+    console.log(pc.green("✓ ") + `Wrote Metaplex metadata to ${pc.cyan(path.resolve(outFile))}`);
+  } else {
+    process.stdout.write(json);
+  }
+}
+
+async function buildMetaplexMetadata(target: string): Promise<Record<string, unknown>> {
+  const folder = await resolveBuddyFolder(target);
+  const petJson = JSON.parse(await readFile(path.join(folder, "pet.json"), "utf8")) as Record<
+    string,
+    unknown
+  >;
+  const slug = path.basename(folder);
+  const displayName = pickString(petJson.displayName, pickString(petJson.name, slug));
+  const description = pickString(
+    petJson.description,
+    "An OpenClawd Blockchain Buddy for Solana-native AI agent workflows.",
+  );
+  const spriteFile = (await fileExists(path.join(folder, "spritesheet.webp")))
+    ? "spritesheet.webp"
+    : "spritesheet.png";
+  const installedMetadataPath = path.join(folder, "openclawd-buddy.json");
+  const installedMetadata = (await fileExists(installedMetadataPath))
+    ? (JSON.parse(await readFile(installedMetadataPath, "utf8")) as Record<string, unknown>)
+    : {};
+
+  return {
+    name: displayName,
+    symbol: "BUDDY",
+    description,
+    external_url: `${SITE_URL}/pets/${slug}`,
+    image: pickString(installedMetadata.spritesheetUrl, `./${spriteFile}`),
+    properties: {
+      category: "agent",
+      platform: "OpenClawd",
+      collection: "Blockchain Buddies",
+      files: [
+        {
+          uri: pickString(installedMetadata.petJsonUrl, "./pet.json"),
+          type: "application/json",
+        },
+        {
+          uri: pickString(installedMetadata.spritesheetUrl, `./${spriteFile}`),
+          type: spriteFile.endsWith(".png") ? "image/png" : "image/webp",
+        },
+      ],
+      integrations: [
+        "openclawd",
+        "metaplex-agent-registry",
+        "openai-codex",
+        "petdex-cli",
+      ],
+      agent: {
+        standard: "EIP-8004-compatible-agent-metadata",
+        registry: "Metaplex Agent Registry",
+        network: process.env.METAPLEX_AGENT_NETWORK ?? "solana-mainnet",
+        capabilities: [
+          "onchain-identity-ready",
+          "delegation-ready",
+          "codex-compatible-companion",
+          "openclawd-buddy-package",
+        ],
+      },
+    },
+    attributes: [
+      { trait_type: "Platform", value: "OpenClawd" },
+      { trait_type: "Registry", value: "Metaplex Agent Registry" },
+      { trait_type: "Codex Compatible", value: "true" },
+      { trait_type: "Petdex Compatible", value: "true" },
+    ],
+  };
+}
+
+async function resolveBuddyFolder(target: string): Promise<string> {
+  const direct = path.resolve(target);
+  if (await fileExists(path.join(direct, "pet.json"))) return direct;
+  const installed = path.join(BUDDIES_DIR, target);
+  if (await fileExists(path.join(installed, "pet.json"))) return installed;
+  throw new Error(`Could not find buddy package for ${target}`);
+}
+
+async function cmdPetdex(args: string[]) {
+  const action = args[0];
+  if (!action || action === "--help" || action === "-h") {
+    console.log(
+      [
+        "",
+        `  ${pc.bold("Petdex compatibility")}`,
+        "",
+        `    ${CLI_NAME} petdex list`,
+        `    ${CLI_NAME} petdex install <slug>`,
+        `    ${CLI_NAME} petdex submit <path>`,
+        "",
+        "  The published package also exposes a legacy `petdex` binary.",
+        "  Set PETDEX_URL to point these commands at a Petdex-compatible API.",
+        "",
+      ].join("\n"),
+    );
+    return;
+  }
+  switch (action) {
+    case "list":
+      await cmdList();
+      return;
+    case "install":
+      await cmdInstall(args.slice(1));
+      return;
+    case "submit":
+      await cmdSubmit(args.slice(1));
+      return;
+    case "login":
+      await cmdLogin();
+      return;
+    case "logout":
+      await cmdLogout();
+      return;
+    case "whoami":
+      await cmdWhoami();
+      return;
+    default:
+      p.cancel(`Unknown petdex compatibility command: ${action}`);
+      process.exit(1);
   }
 }
 
