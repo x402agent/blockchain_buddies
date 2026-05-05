@@ -19,6 +19,7 @@ import {
 import { getVariantsFor } from "@/lib/variants";
 
 import { ClaimCTA } from "@/components/claim-cta";
+import { ClawdPackPreview } from "@/components/clawd-pack-preview";
 import { InstallCommand } from "@/components/install-command";
 import { JsonLd } from "@/components/json-ld";
 import { LikeButton } from "@/components/like-button";
@@ -466,6 +467,8 @@ export default async function PetPage({ params }: PageProps) {
         {/* The animated sprite is the product. Lives right after the
             banner so it lands above the fold on most screens. */}
         <PetStateViewer src={pet.spritesheetPath} petName={pet.displayName} />
+
+        <ClawdPackPreview />
 
         {/* Two-column lockup: install command + owner credit aside.
             Stats radar + variants live below so the install never
