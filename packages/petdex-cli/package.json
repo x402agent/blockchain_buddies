@@ -5,7 +5,7 @@
   "homepage": "https://buddies.openclawd.biz",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clawdsolana/OpenClawd.git",
+    "url": "git+https://github.com/clawdsolana/OpenClawd.git",
     "directory": "blockchain_buddies/packages/petdex-cli"
   },
   "license": "MIT",
@@ -24,9 +24,9 @@
     "node": ">=18"
   },
   "bin": {
-    "blockchain-buddies": "./dist/blockchain-buddies.js",
-    "buddies": "./dist/blockchain-buddies.js",
-    "petdex": "./dist/blockchain-buddies.js"
+    "blockchain-buddies": "dist/blockchain-buddies.js",
+    "buddies": "dist/blockchain-buddies.js",
+    "petdex": "dist/blockchain-buddies.js"
   },
   "files": [
     "dist",
