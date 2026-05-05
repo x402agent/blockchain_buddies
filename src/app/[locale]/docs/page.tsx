@@ -10,14 +10,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = {
-  title: "Docs · Blockchain Buddies",
+  title: "Docs · OpenClawd Buddies",
   description:
-    "How to install, distribute, and automate Codex pets with the Blockchain Buddies CLI.",
+    "How to install, distribute, and automate Codex pets with the OpenClawd Buddies CLI.",
   alternates: buildLocaleAlternates("/docs"),
   openGraph: {
-    title: "Blockchain Buddies CLI · Docs",
+    title: "OpenClawd Buddies CLI · Docs",
     description:
-      "How to install, distribute, and automate Codex pets with the Blockchain Buddies CLI.",
+      "How to install, distribute, and automate Codex pets with the OpenClawd Buddies CLI.",
     images: ["/og.png"],
   },
 };
@@ -56,13 +56,13 @@ export default function DocsPage() {
         <article className="min-w-0 space-y-14">
           <header className="space-y-3">
             <p className="font-mono text-xs tracking-[0.22em] text-brand uppercase">
-              Blockchain Buddies CLI · v0.1
+              OpenClawd Buddies CLI · v0.1
             </p>
             <h1 className="text-5xl font-medium tracking-tight md:text-6xl">
               Docs
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-2">
-              The Blockchain Buddies CLI lets you install, browse, and submit Codex pets
+              The OpenClawd Buddies CLI lets you install, browse, and submit Codex pets
               from your terminal. Authentication is OAuth 2.0 + PKCE through
               Clerk. Tokens persist in your OS keychain. Same auth works across{" "}
               <code className="text-sm">npx</code> and global installs.
@@ -295,7 +295,7 @@ export default function DocsPage() {
             </ol>
 
             <Callout>
-              Pets are user-submitted fan art. Blockchain Buddies doesn't claim rights to
+              Pets are user-submitted fan art. OpenClawd Buddies doesn't claim rights to
               underlying IP. If you're a rights holder requesting a takedown,
               see{" "}
               <Link
@@ -400,7 +400,7 @@ export default function DocsPage() {
 
           <Section id="agents" title="Agent-first usage (Skill)">
             <p>
-              Blockchain Buddies ships a Claude Code / Codex / Cursor compatible{" "}
+              OpenClawd Buddies ships a Claude Code / Codex / Cursor compatible{" "}
               <strong>skill</strong> at{" "}
               <code>.claude/skills/petdex/SKILL.md</code>. Compatible agents
               load it automatically and learn <em>when</em> and <em>how</em> to
@@ -448,7 +448,7 @@ export default function DocsPage() {
             <p>
               The CLI is the executable surface; the skill is the cognitive one.
               If you build a derivative skill (e.g. one that auto-tags new pets
-              or curates a daily digest), you can use the Blockchain Buddies skill as a
+              or curates a daily digest), you can use the OpenClawd Buddies skill as a
               reference. Read it directly:
             </p>
             <p>
@@ -527,7 +527,7 @@ export default function DocsPage() {
                   >
                     GitHub Sponsors
                   </a>{" "}
-                  if Blockchain Buddies saves you time.
+                  if OpenClawd Buddies saves you time.
                 </span>
               </li>
             </ul>

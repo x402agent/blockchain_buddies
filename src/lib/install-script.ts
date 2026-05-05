@@ -56,7 +56,7 @@ export function posixInstallScript(pet: ResolvedPet): string {
   const safeExt = spriteExt === "png" ? "png" : "webp";
   return [
     "#!/bin/sh",
-    "# Blockchain Buddies installer",
+    "# OpenClawd Buddies installer",
     `# https://buddies.openclawd.biz/pets/${safeSlug}`,
     "",
     "set -e",
@@ -105,7 +105,7 @@ export function powershellInstallScript(pet: ResolvedPet): string {
   // Strip newlines / quotes from the display name before echoing.
   const safeName = String(displayName).replace(/[\r\n"]+/g, " ");
   return [
-    "# Blockchain Buddies installer",
+    "# OpenClawd Buddies installer",
     `# https://buddies.openclawd.biz/pets/${safeSlug}`,
     "",
     "$ErrorActionPreference = 'Stop'",
@@ -150,7 +150,7 @@ export function posixNotFoundScript(slug: string): string {
   const safe = String(slug).replace(/[^a-z0-9-]/g, "");
   return [
     "#!/bin/sh",
-    `echo "Buddy '${safe}' not found in Blockchain Buddies." >&2`,
+    `echo "Buddy '${safe}' not found in OpenClawd Buddies." >&2`,
     'echo "Browse buddies at https://buddies.openclawd.biz" >&2',
     "exit 1",
     "",
@@ -160,7 +160,7 @@ export function posixNotFoundScript(slug: string): string {
 export function powershellNotFoundScript(slug: string): string {
   const safe = String(slug).replace(/[^a-z0-9-]/g, "");
   return [
-    `Write-Error "Buddy '${safe}' not found in Blockchain Buddies."`,
+    `Write-Error "Buddy '${safe}' not found in OpenClawd Buddies."`,
     'Write-Error "Browse buddies at https://buddies.openclawd.biz"',
     "exit 1",
     "",

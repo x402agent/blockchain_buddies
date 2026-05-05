@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = {
-  title: "Birth a Blockchain Buddy | Blockchain Buddies",
+  title: "Birth a Blockchain Buddy | OpenClawd Buddies",
   description:
     "Mint a Blockchain Buddy as a registered Metaplex Agent on Solana using OpenClawd and Helius RPC.",
   alternates: buildLocaleAlternates("/birth"),
@@ -69,7 +69,7 @@ export default function BirthPage() {
               Canonical Metaplex flow
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-2">
-              Blockchain Buddies follows the Metaplex Agent Onboarding path:
+              OpenClawd Buddies follows the Metaplex Agent Onboarding path:
               funded wallet, RPC setup, Core asset registration, identity PDA,
               agent wallet activation, optional delegation, and optional token
               launch.

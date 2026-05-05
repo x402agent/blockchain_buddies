@@ -74,7 +74,7 @@ export function PetActionMenu({ pet, variant = "card" }: Props) {
   );
 
   const onShareX = useCallback(() => {
-    const text = `${pet.displayName} — an animated OpenClawd buddy on Blockchain Buddies.\n\n${installCmd}`;
+    const text = `${pet.displayName} — an animated OpenClawd buddy on OpenClawd Buddies.\n\n${installCmd}`;
     const url = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(pageUrl)}`;
     track("pet_action_share", { slug: pet.slug, target: "x" });
     window.open(url, "_blank", "noopener,noreferrer,width=560,height=540");
@@ -96,7 +96,7 @@ export function PetActionMenu({ pet, variant = "card" }: Props) {
           share: (data: ShareData) => Promise<void>;
         }
       ).share({
-        title: `${pet.displayName} — Blockchain Buddies`,
+        title: `${pet.displayName} — OpenClawd Buddies`,
         text: `${pet.displayName} — an animated OpenClawd pet`,
         url: pageUrl,
       });

@@ -62,7 +62,7 @@ export default async function Home() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
-      name: "Blockchain Buddies",
+      name: "OpenClawd Buddies",
       url: `${SITE_URL}/`,
       description: t("jsonLdDescription"),
       publisher: {
@@ -103,14 +103,14 @@ export default async function Home() {
 
           <div className="mt-12 flex flex-col items-center text-center md:mt-16">
             <p className="font-mono text-xs tracking-[0.22em] text-brand uppercase">
-              Blockchain buddies on Solana
+              OpenClawd · Onchain agents on Solana
             </p>
             <h1 className="mt-3 text-[48px] leading-[0.98] font-semibold tracking-tight md:text-[80px]">
-              Blockchain Buddies
+              OpenClawd Buddies
             </h1>
             <p className="mt-5 max-w-xl text-balance text-base leading-7 text-muted-1 md:text-lg">
-              Browse animated companions, then birth your own onchain as a
-              registered Metaplex Agent using OpenClawd and Helius RPC.
+              Browse animated OpenClawd companions, then birth your own onchain
+              as a registered Metaplex Agent using Helius RPC.
             </p>
             <CommandLine
               command="openclawd buddies birth --network solana-mainnet"

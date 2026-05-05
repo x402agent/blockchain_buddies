@@ -1,19 +1,19 @@
 {
   "common": {
-    "brand": "Blockchain Buddies",
+    "brand": "OpenClawd Buddies",
     "codexCli": "OpenClawd",
     "submitPet": "Submit a buddy",
     "browseGallery": "Browse gallery",
     "github": "GitHub",
-    "petdexHome": "Blockchain Buddies home"
+    "petdexHome": "OpenClawd Buddies home"
   },
   "metadata": {
     "root": {
-      "titleDefault": "Blockchain Buddies — Animated companions for OpenClawd",
-      "titleTemplate": "%s | Blockchain Buddies",
-      "description": "Blockchain Buddies is the public gallery of animated companions for OpenClawd. Browse open-source companions, preview their animations, and install one with a single command.",
-      "ogTitle": "Blockchain Buddies — Animated companions for OpenClawd",
-      "twitterTitle": "Blockchain Buddies — Animated companions for OpenClawd",
+      "titleDefault": "OpenClawd Buddies — Animated companions for OpenClawd",
+      "titleTemplate": "%s | OpenClawd Buddies",
+      "description": "OpenClawd Buddies is the public gallery of animated companions for OpenClawd. Browse open-source companions, preview their animations, and install one with a single command.",
+      "ogTitle": "OpenClawd Buddies — Animated companions for OpenClawd",
+      "twitterTitle": "OpenClawd Buddies — Animated companions for OpenClawd",
       "keywords": {
         "codexPet": "OpenClawd buddy",
         "codexCliPet": "OpenClawd CLI buddy",
@@ -23,7 +23,7 @@
         "developerMascot": "developer mascot",
         "terminalPet": "terminal pet",
         "codexCompanion": "OpenClawd companion",
-        "petdex": "blockchain buddies"
+        "petdex": "openclawd buddies"
       }
     }
   },
@@ -38,8 +38,8 @@
     "submitCta": "Submit a buddy",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "githubRepoAria": "Blockchain Buddies on GitHub",
-    "githubRepoAriaWithStars": "Blockchain Buddies on GitHub, {stars} stars"
+    "githubRepoAria": "OpenClawd Buddies on GitHub",
+    "githubRepoAriaWithStars": "OpenClawd Buddies on GitHub, {stars} stars"
   },
   "theme": {
     "toggle": "Toggle theme",
@@ -50,7 +50,7 @@
     "title": "Theme: {label}"
   },
   "footer": {
-    "rightsNotice": "Buddies are user-submitted fan art. Blockchain Buddies does not claim rights to any underlying IP.",
+    "rightsNotice": "Buddies are user-submitted fan art. OpenClawd Buddies does not claim rights to any underlying IP.",
     "topCreators": "Top creators",
     "takedown": "Takedown",
     "github": "GitHub",
@@ -59,7 +59,7 @@
   },
   "home": {
     "eyebrow": "The OpenClawd buddy index",
-    "title": "Blockchain Buddies",
+    "title": "OpenClawd Buddies",
     "tagline": "The public gallery of animated companions for <brand />. Browse {totalPets}+ open-source companions, preview their states, and install one with a single command.",
     "heroCommand": "npx blockchain-buddies install boba",
     "submitCta": "Submit a buddy",
@@ -96,7 +96,7 @@
       "other": "Other"
     },
     "placeholders": {
-      "suggestion": "What would make Blockchain Buddies better?",
+      "suggestion": "What would make OpenClawd Buddies better?",
       "bug": "What broke? Include steps if you can.",
       "praise": "Tell us what you liked.",
       "other": "What's on your mind?"
@@ -113,7 +113,7 @@
   },
   "admin": {
     "metadata": {
-      "title": "Blockchain Buddies — Admin"
+      "title": "OpenClawd Buddies — Admin"
     },
     "tabs": {
       "ariaLabel": "Admin sections",
@@ -218,8 +218,8 @@
         "all": "All"
       },
       "mailto": {
-        "bodyIntro": "Thanks for the {kind} on Blockchain Buddies",
-        "subject": "Re: your Blockchain Buddies feedback — {excerpt}"
+        "bodyIntro": "Thanks for the {kind} on OpenClawd Buddies",
+        "subject": "Re: your OpenClawd Buddies feedback — {excerpt}"
       }
     },
     "feedbackActions": {
@@ -273,12 +273,12 @@
   },
   "submit": {
     "metadata": {
-      "title": "Submit a buddy — Blockchain Buddies",
-      "description": "Upload and validate a OpenClawd buddy package for Blockchain Buddies."
+      "title": "Submit a buddy — OpenClawd Buddies",
+      "description": "Upload and validate a OpenClawd buddy package for OpenClawd Buddies."
     },
     "eyebrow": "Submit",
-    "title": "Add your buddy to Blockchain Buddies",
-    "body": "Share a OpenClawd-compatible animated buddy package. Blockchain Buddies checks the files locally, previews the sprite, and prepares the submission.",
+    "title": "Add your buddy to OpenClawd Buddies",
+    "body": "Share a OpenClawd-compatible animated buddy package. OpenClawd Buddies checks the files locally, previews the sprite, and prepares the submission.",
     "createCta": "Don't have a buddy yet? Hatch one in OpenClawd",
     "legalPrefix": "By submitting, you confirm you have rights to the artwork or are creating fan content. Rights holders can request removal via our",
     "legalLink": "takedown notice",
@@ -287,7 +287,7 @@
   "requests": {
     "metadata": {
       "title": "Pet requests",
-      "description": "Vote on buddies the community wants to see in Blockchain Buddies. Most-upvoted requests get prioritized."
+      "description": "Vote on buddies the community wants to see in OpenClawd Buddies. Most-upvoted requests get prioritized."
     },
     "eyebrow": "Community wishlist",
     "title": "Buddies people are asking for",
@@ -337,8 +337,8 @@
   },
   "create": {
     "metadata": {
-      "title": "Create a buddy — Blockchain Buddies",
-      "description": "Hatch your own OpenClawd buddy in 5 minutes, then share it on Blockchain Buddies."
+      "title": "Create a buddy — OpenClawd Buddies",
+      "description": "Hatch your own OpenClawd buddy in 5 minutes, then share it on OpenClawd Buddies."
     },
     "eyebrow": "Make your own",
     "title": "Hatch a buddy in OpenClawd",
@@ -366,10 +366,10 @@
         "tipAfter": "afterwards to wake or tuck it away."
       },
       "share": {
-        "title": "Share it on Blockchain Buddies",
+        "title": "Share it on OpenClawd Buddies",
         "beforePath": "The buddy lives at",
         "beforeLink": ". Drag that folder (or its zip) to",
-        "afterLink": "and Blockchain Buddies hosts it for everyone to install with one curl."
+        "afterLink": "and OpenClawd Buddies hosts it for everyone to install with one curl."
       }
     },
     "guide": {
@@ -408,25 +408,25 @@
     "creator": {
       "title": "Web buddy creator",
       "soon": "Soon",
-      "body": "A browser-native studio so you can sketch, animate, and preview your buddy without ever leaving Blockchain Buddies — no OpenClawd tokens required. Sign in to get notified when it lands."
+      "body": "A browser-native studio so you can sketch, animate, and preview your buddy without ever leaving OpenClawd Buddies — no OpenClawd tokens required. Sign in to get notified when it lands."
     }
   },
   "about": {
     "metadata": {
-      "title": "About Blockchain Buddies — Animated companions for OpenClawd",
-      "description": "Blockchain Buddies is an open-source gallery of animated companions for OpenClawd. Browse the catalog, install with one command, or submit your own.",
-      "ogTitle": "About Blockchain Buddies",
+      "title": "About OpenClawd Buddies — Animated companions for OpenClawd",
+      "description": "OpenClawd Buddies is an open-source gallery of animated companions for OpenClawd. Browse the catalog, install with one command, or submit your own.",
+      "ogTitle": "About OpenClawd Buddies",
       "ogDescription": "An open-source gallery of animated companions for OpenClawd."
     },
     "eyebrow": "About",
     "hero": {
-      "title": "Blockchain Buddies is the index of OpenClawd buddies",
+      "title": "OpenClawd Buddies is the index of OpenClawd buddies",
       "body": "An open-source gallery of {totalPets}+ animated companions for <strong>OpenClawd</strong>. Install one with a single command and ship with company."
     },
     "sections": {
       "what": {
-        "title": "What Blockchain Buddies is",
-        "body1": "Blockchain Buddies is a public, open-source registry. Every entry is a buddy pack — a tiny bundle of metadata and pixel art that OpenClawd knows how to display while you work. Think of it as a Pokédex for app companions.",
+        "title": "What OpenClawd Buddies is",
+        "body1": "OpenClawd Buddies is a public, open-source registry. Every entry is a buddy pack — a tiny bundle of metadata and pixel art that OpenClawd knows how to display while you work. Think of it as a Pokédex for app companions.",
         "body2": {
           "beforeCozy": "The platform takes the guesswork out: there's a CLI for installing and submitting, a tagged gallery so finding the right companion doesn't require scrolling, and per-vibe collections like",
           "cozyLabel": "cozy buddies",
@@ -462,16 +462,16 @@
           "a": "Yes. Sign in with the blockchain-buddies CLI (npx blockchain-buddies login) and run `npx blockchain-buddies submit ./my-pet/` — the CLI uploads the assets to R2 and queues the submission for review. You can also submit through the website at /submit. All you need is a pet.json file and a 9-state spritesheet."
         },
         "openSource": {
-          "q": "Are Blockchain Buddies buddies free and open source?",
-          "a": "Every buddy on Blockchain Buddies is free to install and use. Buddies keep credit to their original authors. The Blockchain Buddies platform itself (CLI + site) is open source under the Crafter Station umbrella."
+          "q": "Are OpenClawd Buddies buddies free and open source?",
+          "a": "Every buddy on OpenClawd Buddies is free to install and use. Buddies keep credit to their original authors. The OpenClawd Buddies platform itself (CLI + site) is open source under the Crafter Station umbrella."
         },
         "taxonomy": {
           "q": "What's a vibe? What's a kind?",
           "a": "Each buddy is tagged with a kind (creature, object, character) and one to three vibes (cozy, playful, focused, mystical, …). These power the gallery filters and the per-vibe / per-kind landing pages so you can find a companion that matches your mood without scrolling 70+ entries."
         },
         "money": {
-          "q": "How does Blockchain Buddies make money?",
-          "a": "It doesn't. Blockchain Buddies is a community project run by Crafter Station. Storage and DB are absorbed by the platform team — no ads, no upsells, no telemetry beyond standard analytics on which buddies get installed."
+          "q": "How does OpenClawd Buddies make money?",
+          "a": "It doesn't. OpenClawd Buddies is a community project run by Crafter Station. Storage and DB are absorbed by the platform team — no ads, no upsells, no telemetry beyond standard analytics on which buddies get installed."
         }
       }
     },
@@ -492,7 +492,7 @@
   "myPets": {
     "metadata": {
       "title": "My submissions",
-      "description": "Track the status of every buddy you've sent to Blockchain Buddies, customize your profile, and edit live entries."
+      "description": "Track the status of every buddy you've sent to OpenClawd Buddies, customize your profile, and edit live entries."
     },
     "edit": {
       "confirmWithdraw": "Withdraw this edit? Current approved values stay live.",
@@ -522,11 +522,11 @@
   "myFeedback": {
     "metadata": {
       "title": "My feedback",
-      "description": "Threads with the Blockchain Buddies team about feedback you've shared."
+      "description": "Threads with the OpenClawd Buddies team about feedback you've shared."
     },
     "eyebrow": "Threads",
     "title": "My feedback",
-    "subtitle": "Conversations with the Blockchain Buddies team about feedback you've sent.",
+    "subtitle": "Conversations with the OpenClawd Buddies team about feedback you've sent.",
     "empty": "You haven't sent any feedback yet. Use the Feedback button to share thoughts.",
     "emptyFiltered": "No threads in this view.",
     "badges": {
@@ -562,7 +562,7 @@
     "caughtWandering": "Caught wandering: {name}",
     "browsePets": "Browse {count}+ buddies",
     "browseGallery": "Browse the gallery",
-    "about": "About Blockchain Buddies",
+    "about": "About OpenClawd Buddies",
     "submit": "Submit a buddy",
     "featuredEyebrow": "Try a featured one",
     "featuredTitle": "Buddies that are definitely here",
@@ -571,11 +571,11 @@
   },
   "leaderboard": {
     "metadata": {
-      "title": "Blockchain Buddies leaderboard",
-      "description": "Top creators on Blockchain Buddies — most buddies approved, most loved, most installed."
+      "title": "OpenClawd Buddies leaderboard",
+      "description": "Top creators on OpenClawd Buddies — most buddies approved, most loved, most installed."
     },
     "eyebrow": "Top creators",
-    "title": "Blockchain Buddies leaderboard",
+    "title": "OpenClawd Buddies leaderboard",
     "subtitle": "The artists shipping the most buddies, getting the most love, and landing the most installs. Updated live.",
     "categoryAria": "Leaderboard category",
     "secondaryStats": {

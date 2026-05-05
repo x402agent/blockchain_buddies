@@ -68,10 +68,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t("ogTitle"),
       description: t("description"),
       url: SITE_URL,
-      siteName: "Blockchain Buddies",
+      siteName: "OpenClawd Buddies",
       type: "website",
       images: [
-        { url: "/og.png", width: 1200, height: 630, alt: "Blockchain Buddies" },
+        { url: "/og.png", width: 1200, height: 630, alt: "OpenClawd Buddies" },
       ],
     },
     twitter: {

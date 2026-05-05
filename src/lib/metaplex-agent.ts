@@ -71,7 +71,7 @@ function getMintAuthoritySecretKey() {
     process.env.SOLANA_PRIVATE_KEY?.trim();
   if (!value) {
     throw new Error(
-      "Missing BUDDIES_MINT_AUTHORITY_SECRET_KEY. Set a funded Solana keypair before minting Blockchain Buddies.",
+      "Missing BUDDIES_MINT_AUTHORITY_SECRET_KEY. Set a funded Solana keypair before minting OpenClawd Buddies.",
     );
   }
   return parseSecretKey(value);

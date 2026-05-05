@@ -7,7 +7,7 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: "Blockchain Buddies",
+  applicationName: "OpenClawd Buddies",
   authors: [{ name: "Crafter Station", url: "https://crafter.run" }],
   creator: "Crafter Station",
   publisher: "Crafter Station",

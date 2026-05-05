@@ -35,7 +35,7 @@ export function wrapEmail(title: string, blocks: string[]): string {
     '<div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:24px;">',
     `<h1 style="margin:0 0 16px;font-size:22px;line-height:1.2;">${escapeHtml(title)}</h1>`,
     ...blocks,
-    '<p style="margin:24px 0 0;color:#57534e;font-size:13px;">Blockchain Buddies</p>',
+    '<p style="margin:24px 0 0;color:#57534e;font-size:13px;">OpenClawd Buddies</p>',
     "</div></body></html>",
   ].join("");
 }

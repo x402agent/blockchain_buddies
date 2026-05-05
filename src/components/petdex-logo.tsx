@@ -13,14 +13,14 @@ export function PetdexLogo({
   showWordmark = true,
   className = "",
   markClassName = "size-10",
-  ariaLabel = "Blockchain Buddies home",
+  ariaLabel = "OpenClawd Buddies home",
 }: PetdexLogoProps) {
   const content = (
     <>
       <PetdexMark className={markClassName} />
       {showWordmark ? (
         <span className="text-xl font-semibold tracking-normal">
-          Blockchain Buddies
+          OpenClawd Buddies
         </span>
       ) : null}
     </>
@@ -50,14 +50,14 @@ function PetdexMark({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient
-          id="petdex-body"
+          id="openclawd-body"
           x1="8"
           y1="8"
           x2="56"
           y2="56"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#3847f5" />
+          <stop stopColor="#ff7a1a" />
           <stop offset="1" stopColor="#1a1d2e" />
         </linearGradient>
       </defs>
@@ -68,15 +68,17 @@ function PetdexMark({ className }: { className?: string }) {
         width="56"
         height="56"
         rx="16"
-        fill="url(#petdex-body)"
+        fill="url(#openclawd-body)"
       />
 
       <g fill="#ffffff">
-        <rect x="22" y="20" width="6" height="6" />
-        <rect x="36" y="20" width="6" height="6" />
-        <rect x="16" y="26" width="6" height="18" />
-        <rect x="42" y="26" width="6" height="18" />
-        <rect x="22" y="38" width="20" height="6" />
+        <rect x="14" y="14" width="6" height="22" />
+        <rect x="26" y="14" width="6" height="22" />
+        <rect x="38" y="14" width="6" height="22" />
+        <rect x="14" y="36" width="6" height="6" />
+        <rect x="26" y="36" width="6" height="6" />
+        <rect x="38" y="36" width="6" height="6" />
+        <rect x="20" y="42" width="24" height="6" />
       </g>
     </svg>
   );

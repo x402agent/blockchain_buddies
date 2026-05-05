@@ -24,7 +24,7 @@ export function SiteFooter() {
             {t("takedown")}
           </Link>
           <a
-            href="https://github.com/crafter-station/petdex"
+            href="https://github.com/clawdsolana/OpenClawd"
             target="_blank"
             rel="noreferrer"
             className="underline underline-offset-4 transition hover:text-foreground"
