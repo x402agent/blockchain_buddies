@@ -1,3 +1,4 @@
+@layer theme, base, clerk, components, utilities;
 @import "tailwindcss";
 
 /* Enable Tailwind v4's `dark:` variant via the .dark class on <html>,

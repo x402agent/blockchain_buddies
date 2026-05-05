@@ -29,7 +29,10 @@ function ClerkWithTheme({ children }: { children: React.ReactNode }) {
     locale === "es" ? esES : locale === "zh" ? zhCN : undefined;
 
   return (
-    <ClerkProvider appearance={{ baseTheme }} localization={localization}>
+    <ClerkProvider
+      appearance={{ baseTheme, cssLayerName: "clerk" }}
+      localization={localization}
+    >
       {children}
     </ClerkProvider>
   );

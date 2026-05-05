@@ -156,9 +156,28 @@ HELIUS_RPC_URL=                            # https://mainnet.helius-rpc.com/?api
 HELIUS_API_KEY=                            # alternative to RPC URL
 METAPLEX_AGENT_NETWORK=solana-mainnet      # or solana-devnet
 BUDDIES_MINT_AUTHORITY_SECRET_KEY=         # base58 OR JSON array keypair
+
+# Clerk / OAuth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+CLERK_PUBLIC_KEY=
+CLERK_FRONTEND_API_URL=https://clerk.solanaclawd.com
+NEXT_PUBLIC_SITE_URL=https://buddies.solanaclawd.com
+BLOCKCHAIN_BUDDIES_CLERK_ISSUER=https://clerk.solanaclawd.com
+BLOCKCHAIN_BUDDIES_CLERK_CLIENT_ID=
+CLERK_OAUTH_CALLBACK_URL=https://buddies.solanaclawd.com/auth/callback
 ```
 
 > `BUDDIES_MINT_AUTHORITY_SECRET_KEY` accepts **either** a base58 secret key **or** a JSON array keypair (e.g., the contents of `~/.config/solana/id.json`).
+
+OAuth/OIDC provider endpoints for Clerk-as-IdP:
+
+- Discovery: `https://clerk.solanaclawd.com/.well-known/openid-configuration`
+- Authorize: `https://clerk.solanaclawd.com/oauth/authorize`
+- Token: `https://clerk.solanaclawd.com/oauth/token`
+- User info: `https://clerk.solanaclawd.com/oauth/userinfo`
+- Token introspection: `https://clerk.solanaclawd.com/oauth/token_info`
+- Callback URI: `https://buddies.solanaclawd.com/auth/callback`
 
 **Pre-flight checklist:**
 
