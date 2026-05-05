@@ -20,7 +20,7 @@ import { COLOR_FAMILIES, type ColorFamily } from "@/lib/color-families";
 import { db, hasDatabaseUrl, schema } from "@/lib/db/client";
 import { getAvailableBatches } from "@/lib/dex-batch.server";
 import type { PetWithMetrics } from "@/lib/pets";
-import { rowToPet } from "@/lib/pets";
+import { isMissingPetTable, rowToPet } from "@/lib/pets";
 import { embedQuery, looksLikeVibeQuery } from "@/lib/query-embed";
 import { PET_KINDS, PET_VIBES, type PetKind, type PetVibe } from "@/lib/types";
 
@@ -91,7 +91,10 @@ export async function searchPets(input: SearchInput): Promise<SearchOutput> {
     !(input.batches && input.batches.length > 0);
 
   if (isVibe) {
-    const out = await vibeSearch({ q, limit, cursor });
+    const out = await vibeSearch({ q, limit, cursor }).catch((error) => {
+      if (isMissingPetTable(error)) return null;
+      throw error;
+    });
     if (out) return out;
     // fall through to keyword if embedding failed
   }
@@ -165,7 +168,11 @@ export async function searchPets(input: SearchInput): Promise<SearchOutput> {
     .where(where)
     .orderBy(...orderBy)
     .offset(cursor)
-    .limit(limit + 1);
+    .limit(limit + 1)
+    .catch((error) => {
+      if (isMissingPetTable(error)) return [];
+      throw error;
+    });
 
   const hasNext = pageRows.length > limit;
   const slice = hasNext ? pageRows.slice(0, limit) : pageRows;
@@ -183,12 +190,19 @@ export async function searchPets(input: SearchInput): Promise<SearchOutput> {
   const totalRow = await db
     .select({ n: sql<number>`count(*)::int` })
     .from(schema.submittedPets)
-    .where(where);
+    .where(where)
+    .catch((error) => {
+      if (isMissingPetTable(error)) return [{ n: 0 }];
+      throw error;
+    });
   const total = totalRow[0]?.n ?? 0;
 
   // facets — always over the unfiltered universe of approved pets so users
   // see all options as they narrow. Two cheap aggregate queries.
-  const facets = await loadFacets();
+  const facets = await loadFacets().catch((error) => {
+    if (isMissingPetTable(error)) return emptyFacets();
+    throw error;
+  });
 
   return {
     pets,

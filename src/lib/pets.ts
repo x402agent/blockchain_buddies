@@ -21,15 +21,30 @@ const EMPTY_METRICS: Metrics = {
   likeCount: 0,
 };
 
+export function isMissingPetTable(error: unknown): boolean {
+  const cause = (error as { cause?: unknown } | null)?.cause;
+  if ((cause as { code?: unknown } | null)?.code === "42P01") return true;
+  const text =
+    error instanceof Error
+      ? `${error.message} ${cause instanceof Error ? cause.message : String(cause ?? "")}`
+      : String(error);
+  return text.includes("submitted_pets") && (text.includes("does not exist") || text.includes("42P01"));
+}
+
 export async function getPet(slug: string): Promise<PetdexPet | undefined> {
   if (!hasDatabaseUrl) return undefined;
-  const row = await db.query.submittedPets.findFirst({
-    where: and(
-      eq(schema.submittedPets.slug, slug),
-      eq(schema.submittedPets.status, "approved"),
-    ),
-  });
-  return row ? rowToPet(row) : undefined;
+  try {
+    const row = await db.query.submittedPets.findFirst({
+      where: and(
+        eq(schema.submittedPets.slug, slug),
+        eq(schema.submittedPets.status, "approved"),
+      ),
+    });
+    return row ? rowToPet(row) : undefined;
+  } catch (error) {
+    if (isMissingPetTable(error)) return undefined;
+    throw error;
+  }
 }
 
 export async function getPetWithMetrics(
@@ -46,16 +61,21 @@ export async function getPetWithMetrics(
  *  on-demand and revalidated. */
 export async function getStaticPetSlugs(): Promise<string[]> {
   if (!hasDatabaseUrl) return [];
-  const rows = await db
-    .select({ slug: schema.submittedPets.slug })
-    .from(schema.submittedPets)
-    .where(
-      and(
-        eq(schema.submittedPets.status, "approved"),
-        eq(schema.submittedPets.featured, true),
-      ),
-    );
-  return rows.map((r) => r.slug);
+  try {
+    const rows = await db
+      .select({ slug: schema.submittedPets.slug })
+      .from(schema.submittedPets)
+      .where(
+        and(
+          eq(schema.submittedPets.status, "approved"),
+          eq(schema.submittedPets.featured, true),
+        ),
+      );
+    return rows.map((r) => r.slug);
+  } catch (error) {
+    if (isMissingPetTable(error)) return [];
+    throw error;
+  }
 }
 
 export async function getFeaturedPetsWithMetrics(
@@ -71,7 +91,11 @@ export async function getFeaturedPetsWithMetrics(
         eq(schema.submittedPets.featured, true),
       ),
     )
-    .limit(limit);
+    .limit(limit)
+    .catch((error) => {
+      if (isMissingPetTable(error)) return [];
+      throw error;
+    });
 
   if (rows.length === 0) return [];
   const metrics = await getAllMetrics();
@@ -86,7 +110,11 @@ export async function getAllApprovedPets(): Promise<PetdexPet[]> {
   const rows = await db
     .select()
     .from(schema.submittedPets)
-    .where(eq(schema.submittedPets.status, "approved"));
+    .where(eq(schema.submittedPets.status, "approved"))
+    .catch((error) => {
+      if (isMissingPetTable(error)) return [];
+      throw error;
+    });
   return rows.map(rowToPet);
 }
 
@@ -105,7 +133,11 @@ export async function getApprovedPetCount(): Promise<number> {
   const row = await db
     .select({ n: sql<number>`count(*)::int` })
     .from(schema.submittedPets)
-    .where(eq(schema.submittedPets.status, "approved"));
+    .where(eq(schema.submittedPets.status, "approved"))
+    .catch((error) => {
+      if (isMissingPetTable(error)) return [{ n: 0 }];
+      throw error;
+    });
   return row[0]?.n ?? 0;
 }
 

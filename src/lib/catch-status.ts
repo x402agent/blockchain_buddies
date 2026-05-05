@@ -3,6 +3,7 @@ import { cache } from "react";
 import { eq, sql } from "drizzle-orm";
 
 import { db, schema } from "@/lib/db/client";
+import { isMissingPetTable } from "@/lib/pets";
 
 export const getCaughtSlugSet = cache(
   async (userId: string | null): Promise<Set<string>> => {
@@ -33,7 +34,10 @@ export const getCatchProgress = cache(
         FROM submitted_pets
         WHERE status = 'approved'
           AND source <> 'discover'
-      `) as Promise<{ rows: Array<{ count: number }> }>,
+      `).catch((error) => {
+        if (isMissingPetTable(error)) return { rows: [{ count: 0 }] };
+        throw error;
+      }) as Promise<{ rows: Array<{ count: number }> }>,
     ]);
 
     const caught = caughtResult[0]?.count ?? 0;

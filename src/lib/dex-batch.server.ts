@@ -5,6 +5,7 @@
 import { sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
+import { isMissingPetTable } from "@/lib/pets";
 
 import { formatBatchLabel } from "@/lib/dex-batch";
 
@@ -19,7 +20,10 @@ export async function getAvailableBatches(): Promise<
     WHERE status = 'approved' AND source != 'discover'
     GROUP BY 1
     ORDER BY 1 DESC
-  `);
+  `).catch((error) => {
+    if (isMissingPetTable(error)) return { rows: [] };
+    throw error;
+  });
 
   return (result.rows ?? []).map((row) => ({
     key: row.key,
