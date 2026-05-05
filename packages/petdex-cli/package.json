@@ -1,0 +1,39 @@
+{
+  "name": "@openclawdsolana/blockchain-buddies",
+  "version": "0.1.0",
+  "description": "Blockchain Buddies CLI for OpenClawd — install, browse, and submit Solana-native buddies from your terminal.",
+  "homepage": "https://buddies.openclawd.biz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clawdsolana/OpenClawd.git",
+    "directory": "blockchain_buddies/packages/petdex-cli"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "blockchain-buddies": "./dist/blockchain-buddies.js",
+    "buddies": "./dist/blockchain-buddies.js",
+    "petdex": "./dist/blockchain-buddies.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun build ./bin/petdex.ts --target=node --outfile=./dist/blockchain-buddies.js --minify",
+    "postbuild": "node -e 'const f=\"./dist/blockchain-buddies.js\";const fs=require(\"fs\");const c=fs.readFileSync(f,\"utf8\");if(!c.startsWith(\"#!\")){fs.writeFileSync(f,\"#!/usr/bin/env node\\n\"+c)}fs.chmodSync(f,0o755)'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.3.0",
+    "jszip": "^3.10.1",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.3"
+  }
+}

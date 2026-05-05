@@ -1,0 +1,717 @@
+{
+  "common": {
+    "brand": "Blockchain Buddies",
+    "codexCli": "OpenClawd",
+    "submitPet": "Submit a buddy",
+    "browseGallery": "Browse gallery",
+    "github": "GitHub",
+    "petdexHome": "Blockchain Buddies home"
+  },
+  "metadata": {
+    "root": {
+      "titleDefault": "Blockchain Buddies — Animated companions for OpenClawd",
+      "titleTemplate": "%s | Blockchain Buddies",
+      "description": "Blockchain Buddies is the public gallery of animated companions for OpenClawd. Browse open-source companions, preview their animations, and install one with a single command.",
+      "ogTitle": "Blockchain Buddies — Animated companions for OpenClawd",
+      "twitterTitle": "Blockchain Buddies — Animated companions for OpenClawd",
+      "keywords": {
+        "codexPet": "OpenClawd buddy",
+        "codexCliPet": "OpenClawd CLI buddy",
+        "openaiCodexPets": "OpenClawd Solana buddies",
+        "pixelPet": "pixel pet",
+        "animatedPet": "animated pet",
+        "developerMascot": "developer mascot",
+        "terminalPet": "terminal pet",
+        "codexCompanion": "OpenClawd companion",
+        "petdex": "blockchain buddies"
+      }
+    }
+  },
+  "header": {
+    "gallery": "Gallery",
+    "create": "Create",
+    "docs": "Docs",
+    "topCreators": "Top creators",
+    "requests": "Requests",
+    "about": "About",
+    "language": "Language",
+    "submitCta": "Submit a buddy",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "githubRepoAria": "Blockchain Buddies on GitHub",
+    "githubRepoAriaWithStars": "Blockchain Buddies on GitHub, {stars} stars"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "system": "System ({resolvedTheme})",
+    "dark": "Dark",
+    "light": "Light",
+    "ariaLabel": "Theme: {label}. Click to cycle.",
+    "title": "Theme: {label}"
+  },
+  "footer": {
+    "rightsNotice": "Buddies are user-submitted fan art. Blockchain Buddies does not claim rights to any underlying IP.",
+    "topCreators": "Top creators",
+    "takedown": "Takedown",
+    "github": "GitHub",
+    "sponsor": "Sponsor",
+    "sponsorAria": "Sponsor on GitHub"
+  },
+  "home": {
+    "eyebrow": "The OpenClawd buddy index",
+    "title": "Blockchain Buddies",
+    "tagline": "The public gallery of animated companions for <brand />. Browse {totalPets}+ open-source companions, preview their states, and install one with a single command.",
+    "heroCommand": "npx blockchain-buddies install boba",
+    "submitCta": "Submit a buddy",
+    "browseGallery": "Browse gallery",
+    "openPet": "Open {name}",
+    "petAnimated": "{name} animated",
+    "petParadeAria": "Featured buddies",
+    "surprise": {
+      "eyebrow": "Surprise drop",
+      "title": "A buddy found you",
+      "dismiss": "Dismiss surprise pet",
+      "view": "View",
+      "install": "Install",
+      "shuffle": "Shuffle",
+      "viewAria": "View {name}",
+      "spriteAlt": "{name} surprise pet"
+    },
+    "jsonLdDescription": "Public gallery of animated companions for OpenClawd. Install one with a single command.",
+    "jsonLdFeaturedPets": "Featured OpenClawd buddies"
+  },
+  "feedback": {
+    "trigger": "Feedback",
+    "title": "Send feedback",
+    "close": "Close",
+    "send": "Send",
+    "sending": "Sending…",
+    "emailPlaceholder": "email (optional, only if you want a reply)",
+    "githubPrompt": "Found a bug or want to dig into the source?",
+    "openIssue": "Open an issue on GitHub →",
+    "kinds": {
+      "suggestion": "Suggest",
+      "bug": "Bug",
+      "praise": "Praise",
+      "other": "Other"
+    },
+    "placeholders": {
+      "suggestion": "What would make Blockchain Buddies better?",
+      "bug": "What broke? Include steps if you can.",
+      "praise": "Tell us what you liked.",
+      "other": "What's on your mind?"
+    },
+    "success": {
+      "title": "Thanks. Got it.",
+      "body": "Every note lands in the queue. We read them all."
+    },
+    "errors": {
+      "moreDetail": "Tell us a bit more (4+ chars).",
+      "submitFailed": "Submit failed ({status}).",
+      "network": "Network error. Try again."
+    }
+  },
+  "admin": {
+    "metadata": {
+      "title": "Blockchain Buddies — Admin"
+    },
+    "tabs": {
+      "ariaLabel": "Admin sections",
+      "submissions": "Submissions",
+      "edits": "Edits",
+      "requests": "Requests",
+      "feedback": "Feedback",
+      "manifest": "Manifest"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "discovered": "Discovered",
+      "all": "All",
+      "open": "Open",
+      "fulfilled": "Fulfilled",
+      "dismissed": "Dismissed",
+      "addressed": "Addressed",
+      "archived": "Archived"
+    },
+    "kinds": {
+      "all": "All kinds",
+      "suggestion": "Suggestion",
+      "bug": "Bug",
+      "praise": "Praise",
+      "other": "Other",
+      "suggestShort": "Suggest"
+    },
+    "queue": {
+      "eyebrow": "Submission queue",
+      "title": "Review buddies",
+      "empty": "No buddies in this view."
+    },
+    "review": {
+      "needsName": "Needs name",
+      "edit": "Edit",
+      "placeholders": {
+        "displayName": "Pet display name",
+        "slug": "slug (url-safe)",
+        "description": "Description"
+      },
+      "rejectPrompt": "Reason for rejection (optional)",
+      "requestFailed": "Request failed ({status})",
+      "save": "Save",
+      "cancel": "Cancel",
+      "approve": "Approve",
+      "reject": "Reject",
+      "revive": "Revive to pending",
+      "links": {
+        "zip": "zip",
+        "sprite": "sprite",
+        "petJson": "pet.json"
+      },
+      "relative": {
+        "justNow": "just now"
+      },
+      "petTime": "PET",
+      "petAnimation": "buddy animation",
+      "similar": {
+        "possibleDuplicate": "Possible duplicate",
+        "looksSimilar": "Looks similar",
+        "sameCharacter": "Same character?",
+        "hide": "Hide",
+        "show": "Show"
+      }
+    },
+    "edits": {
+      "eyebrow": "Edit queue",
+      "title": "Pending edits",
+      "description": "Owner-submitted text changes awaiting re-approval. The live page keeps showing the approved values until you act.",
+      "empty": "No pending edits.",
+      "submitted": "submitted",
+      "displayName": "Display name",
+      "descriptionLabel": "Description",
+      "tags": "Tags",
+      "emptyValue": "empty",
+      "noChanges": "No changes",
+      "noDiff": "Edit submitted but no changes detected. Reject to clear."
+    },
+    "editActions": {
+      "approve": "Approve edit",
+      "reject": "Reject",
+      "rejectPrompt": "Reason (optional, sent to owner):",
+      "failed": "Failed: {error}"
+    },
+    "feedback": {
+      "eyebrow": "Inbox",
+      "title": "Feedback",
+      "empty": "No feedback in this view.",
+      "thread": "Thread",
+      "threadWithCount": "Thread ({count})",
+      "profile": "Profile",
+      "viewProfile": "View @{handle}'s profile",
+      "sendEmail": "Send email instead",
+      "anonymous": "Anonymous",
+      "clerk": "clerk",
+      "filters": {
+        "pending": "Pending",
+        "addressed": "Addressed",
+        "archived": "Archived",
+        "all": "All"
+      },
+      "mailto": {
+        "bodyIntro": "Thanks for the {kind} on Blockchain Buddies",
+        "subject": "Re: your Blockchain Buddies feedback — {excerpt}"
+      }
+    },
+    "feedbackActions": {
+      "address": "Mark as addressed",
+      "archive": "Archive",
+      "reopen": "Re-open into pending",
+      "failed": "Failed: {error}"
+    },
+    "requests": {
+      "eyebrow": "Community wishlist",
+      "title": "Pet requests",
+      "summary": "{open} open · {fulfilled} fulfilled · {dismissed} dismissed",
+      "openSection": "Open",
+      "fulfilledSection": "Fulfilled",
+      "dismissedSection": "Dismissed",
+      "emptyOpen": "No open requests right now.",
+      "votes": "votes",
+      "moreVoters": "+{count} more",
+      "anonymous": "anonymous"
+    },
+    "requestActions": {
+      "fulfill": "Fulfill",
+      "dismiss": "Dismiss",
+      "reopen": "Re-open",
+      "slug": "slug",
+      "placeholder": "cool-clippy",
+      "mark": "Mark"
+    },
+    "manifest": {
+      "eyebrow": "Telemetry",
+      "title": "Manifest fetches",
+      "description": "Who's pulling /api/manifest. IPs are SHA-256 hashed daily so they group within a day but can't be reversed.",
+      "total": "Total (all time)",
+      "last24": "Last 24h",
+      "distinct24": "Distinct IPs (24h)",
+      "byDay": "By day · last 14d",
+      "loudestIps": "Loudest IPs · last 7d",
+      "topUserAgents": "Top user-agents · last 7d",
+      "byCountry": "By country · last 7d",
+      "headers": {
+        "ipHash": "IP hash",
+        "country": "Country",
+        "lastUa": "Last UA",
+        "fetches": "Fetches"
+      },
+      "noUa": "no UA"
+    },
+    "threadPage": {
+      "back": "← Inbox"
+    }
+  },
+  "submit": {
+    "metadata": {
+      "title": "Submit a buddy — Blockchain Buddies",
+      "description": "Upload and validate a OpenClawd buddy package for Blockchain Buddies."
+    },
+    "eyebrow": "Submit",
+    "title": "Add your buddy to Blockchain Buddies",
+    "body": "Share a OpenClawd-compatible animated buddy package. Blockchain Buddies checks the files locally, previews the sprite, and prepares the submission.",
+    "createCta": "Don't have a buddy yet? Hatch one in OpenClawd",
+    "legalPrefix": "By submitting, you confirm you have rights to the artwork or are creating fan content. Rights holders can request removal via our",
+    "legalLink": "takedown notice",
+    "legalSuffix": "."
+  },
+  "requests": {
+    "metadata": {
+      "title": "Pet requests",
+      "description": "Vote on buddies the community wants to see in Blockchain Buddies. Most-upvoted requests get prioritized."
+    },
+    "eyebrow": "Community wishlist",
+    "title": "Buddies people are asking for",
+    "body": "When someone searches for a buddy that doesn't exist yet, they can request it. Upvote the ones you'd want too — most-upvoted go to the top of the curation list.",
+    "backToGallery": "← Back to gallery",
+    "view": {
+      "form": {
+        "title": "Request a pet",
+        "body": "Describe the buddy you'd like to see — character, theme, vibe. If someone else already asked for the same thing, your submission turns into an upvote on theirs.",
+        "placeholder": "e.g. a Studio Ghibli chinchilla, a sleepy axolotl coder, Spider-Pig",
+        "submit": "Request",
+        "sending": "Sending…"
+      },
+      "success": {
+        "created": "Requested \"{query}\". Others can upvote it now.",
+        "upvoted": "Upvoted existing request for \"{query}\" — now at {count} votes."
+      },
+      "sort": {
+        "top": "Top voted",
+        "new": "Newest",
+        "fulfilled": "Fulfilled",
+        "searchPlaceholder": "Search requests…"
+      },
+      "badges": {
+        "fulfilled": "Fulfilled"
+      },
+      "empty": {
+        "title": "No requests yet — be the first.",
+        "beforeLink": "Or search",
+        "link": "the gallery",
+        "afterLink": "and request a buddy directly from the no-results screen.",
+        "noMatches": "No requests match \"{search}\".",
+        "nothingInView": "Nothing in this view yet."
+      },
+      "upvoteAria": "Upvote \"{query}\"",
+      "moreVoters": "+{count} more",
+      "errors": {
+        "moreDetail": "Tell us a bit more ({min}-{max} chars).",
+        "signInRequest": "Sign in to request a pet.",
+        "submitFailed": "Submit failed ({status})",
+        "networkRetry": "Network error, try again.",
+        "signInUpvote": "Sign in to upvote.",
+        "voteFailed": "Vote failed ({status})",
+        "network": "Network error"
+      }
+    }
+  },
+  "create": {
+    "metadata": {
+      "title": "Create a buddy — Blockchain Buddies",
+      "description": "Hatch your own OpenClawd buddy in 5 minutes, then share it on Blockchain Buddies."
+    },
+    "eyebrow": "Make your own",
+    "title": "Hatch a buddy in OpenClawd",
+    "body": "OpenClawd ships a built-in skill called <strong>Hatch Pet</strong> that generates a fully animated companion (9 states, 1536×1872) from a short description. Five minutes from idea to a sprite that lives in your app.",
+    "steps": {
+      "install": {
+        "title": "Get the Hatch Pet skill",
+        "body": "Open OpenClawd → <skills>Skills</skills> in the top navbar → find <strong>Hatch Pet</strong> → install."
+      },
+      "hatch": {
+        "title": "Hatch your pet",
+        "beforeCommand": "In OpenClawd chat, type",
+        "afterCommand": ". Describe the buddy you want (an idea, a vibe, a thing on your desk). The skill generates the spritesheet and animations automatically.",
+        "tip": "Tip: specifics travel further. \"A tiny sock-elf with green eyes\" beats \"a creature\"."
+      },
+      "activate": {
+        "title": "Activate it",
+        "beforeSettings": "Restart OpenClawd, then go to",
+        "settingsPath": "Settings → Appearance → Buddies",
+        "middle": "and click",
+        "select": "Select",
+        "afterSelect": "on your new buddy under",
+        "customPets": "Custom buddies",
+        "tipBefore": "Use",
+        "tipAfter": "afterwards to wake or tuck it away."
+      },
+      "share": {
+        "title": "Share it on Blockchain Buddies",
+        "beforePath": "The buddy lives at",
+        "beforeLink": ". Drag that folder (or its zip) to",
+        "afterLink": "and Blockchain Buddies hosts it for everyone to install with one curl."
+      }
+    },
+    "guide": {
+      "title": "What makes a great pet",
+      "items": {
+        "specific": {
+          "label": "Specific over generic.",
+          "body": "\"A bubble-tea otter\" beats \"an otter\"."
+        },
+        "twist": {
+          "label": "Twist a job, role, or object.",
+          "body": "Paperclip assistant, sock elf, microwave companion — the unexpected sticks."
+        },
+        "vibe": {
+          "label": "One vibe.",
+          "body": "Cozy, focused, mischievous, heroic. Don't try to be all of them."
+        },
+        "ip": {
+          "label": "Skip clear IP.",
+          "body": "Fan-art is welcome but expect takedowns. Original concepts age better."
+        }
+      }
+    },
+    "cards": {
+      "submit": {
+        "title": "Already have a pet?",
+        "body": "Drop the folder or zip and we'll publish it.",
+        "cta": "Submit your pet"
+      },
+      "request": {
+        "title": "Burning through OpenClawd tokens?",
+        "body": "Drop a wish in the request queue — the community (and we) will pick it up.",
+        "cta": "Request a pet"
+      }
+    },
+    "creator": {
+      "title": "Web buddy creator",
+      "soon": "Soon",
+      "body": "A browser-native studio so you can sketch, animate, and preview your buddy without ever leaving Blockchain Buddies — no OpenClawd tokens required. Sign in to get notified when it lands."
+    }
+  },
+  "about": {
+    "metadata": {
+      "title": "About Blockchain Buddies — Animated companions for OpenClawd",
+      "description": "Blockchain Buddies is an open-source gallery of animated companions for OpenClawd. Browse the catalog, install with one command, or submit your own.",
+      "ogTitle": "About Blockchain Buddies",
+      "ogDescription": "An open-source gallery of animated companions for OpenClawd."
+    },
+    "eyebrow": "About",
+    "hero": {
+      "title": "Blockchain Buddies is the index of OpenClawd buddies",
+      "body": "An open-source gallery of {totalPets}+ animated companions for <strong>OpenClawd</strong>. Install one with a single command and ship with company."
+    },
+    "sections": {
+      "what": {
+        "title": "What Blockchain Buddies is",
+        "body1": "Blockchain Buddies is a public, open-source registry. Every entry is a buddy pack — a tiny bundle of metadata and pixel art that OpenClawd knows how to display while you work. Think of it as a Pokédex for app companions.",
+        "body2": {
+          "beforeCozy": "The platform takes the guesswork out: there's a CLI for installing and submitting, a tagged gallery so finding the right companion doesn't require scrolling, and per-vibe collections like",
+          "cozyLabel": "cozy buddies",
+          "middle": "or",
+          "focusedLabel": "focused buddies",
+          "afterFocused": "."
+        }
+      },
+      "pack": {
+        "title": "How a buddy pack works",
+        "beforePetJson": "Each buddy is two files.",
+        "betweenFiles": "defines the metadata — name, the 9 animation states, frame durations — and",
+        "afterSpritesheet": "holds the pixel art as a horizontal strip. OpenClawd loads them at startup and swaps states based on what's happening in your session."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "whatIs": {
+          "q": "What is a OpenClawd pet?",
+          "a": "A OpenClawd buddy is a small animated pixel companion for the app. Each buddy ships as a single pet.json describing 9 states (idle, working, sleeping, etc.) plus a horizontal spritesheet. OpenClawd picks the right state automatically based on what you're doing in your session."
+        },
+        "install": {
+          "q": "How do I install a pet?",
+          "a": "From the gallery page or any buddy detail page, copy the install command (looks like `npx blockchain-buddies install boba`) and paste it into your terminal. The CLI fetches the buddy from R2, drops it under ~/.openclawd/buddies/<slug>/, and tells OpenClawd to use it. Works on macOS, Linux, and Windows (via PowerShell)."
+        },
+        "origin": {
+          "q": "Where do the buddies come from?",
+          "a": "Most buddies are submitted by the community through the website or the blockchain-buddies CLI. A handful are featured curated entries hand-picked from Crafter Station. Every buddy is reviewed by an admin before it goes live in the gallery."
+        },
+        "submit": {
+          "q": "Can I submit my own pet?",
+          "a": "Yes. Sign in with the blockchain-buddies CLI (npx blockchain-buddies login) and run `npx blockchain-buddies submit ./my-pet/` — the CLI uploads the assets to R2 and queues the submission for review. You can also submit through the website at /submit. All you need is a pet.json file and a 9-state spritesheet."
+        },
+        "openSource": {
+          "q": "Are Blockchain Buddies buddies free and open source?",
+          "a": "Every buddy on Blockchain Buddies is free to install and use. Buddies keep credit to their original authors. The Blockchain Buddies platform itself (CLI + site) is open source under the Crafter Station umbrella."
+        },
+        "taxonomy": {
+          "q": "What's a vibe? What's a kind?",
+          "a": "Each buddy is tagged with a kind (creature, object, character) and one to three vibes (cozy, playful, focused, mystical, …). These power the gallery filters and the per-vibe / per-kind landing pages so you can find a companion that matches your mood without scrolling 70+ entries."
+        },
+        "money": {
+          "q": "How does Blockchain Buddies make money?",
+          "a": "It doesn't. Blockchain Buddies is a community project run by Crafter Station. Storage and DB are absorbed by the platform team — no ads, no upsells, no telemetry beyond standard analytics on which buddies get installed."
+        }
+      }
+    },
+    "browse": {
+      "title": "Browse by kind or vibe",
+      "links": {
+        "creatures": "Creatures",
+        "objects": "Objects",
+        "characters": "Characters",
+        "cozy": "Cozy",
+        "playful": "Playful",
+        "focused": "Focused",
+        "mystical": "Mystical",
+        "wholesome": "Wholesome"
+      }
+    }
+  },
+  "myPets": {
+    "metadata": {
+      "title": "My submissions",
+      "description": "Track the status of every buddy you've sent to Blockchain Buddies, customize your profile, and edit live entries."
+    },
+    "edit": {
+      "confirmWithdraw": "Withdraw this edit? Current approved values stay live.",
+      "pendingReview": "Pending review",
+      "submittedPrefix": "Your edit was submitted",
+      "submittedSuffix": ". The page below shows the live approved version until Hunter signs off.",
+      "viewEdit": "View edit",
+      "withdraw": "Withdraw",
+      "rejected": "Edit rejected",
+      "tryAgain": "Try again",
+      "open": "Edit name & description",
+      "modalTitle": "Edit buddy metadata",
+      "modalBody": "Goes back through admin review. Sprites and zip can't be changed here — those need a fresh /submit so the dedup + scan pipeline runs again.",
+      "fields": {
+        "displayName": "Display name",
+        "description": "Description",
+        "tags": "Tags"
+      },
+      "tagsPlaceholder": "cat, desk-companion, cuddly",
+      "tagsHelp": "Comma- or space-separated. Lowercase, max 8, hyphens ok.",
+      "actions": {
+        "cancel": "Cancel",
+        "submit": "Submit edit for review"
+      }
+    }
+  },
+  "myFeedback": {
+    "metadata": {
+      "title": "My feedback",
+      "description": "Threads with the Blockchain Buddies team about feedback you've shared."
+    },
+    "eyebrow": "Threads",
+    "title": "My feedback",
+    "subtitle": "Conversations with the Blockchain Buddies team about feedback you've sent.",
+    "empty": "You haven't sent any feedback yet. Use the Feedback button to share thoughts.",
+    "emptyFiltered": "No threads in this view.",
+    "badges": {
+      "newReply": "New reply",
+      "replied": "Replied",
+      "waiting": "Waiting"
+    },
+    "filters": {
+      "unread": "Unread",
+      "replied": "Replied",
+      "waiting": "Waiting",
+      "all": "All"
+    },
+    "replyAuthor": "Hunter",
+    "replyCount": "{count, plural, one {# reply} other {# replies}}",
+    "noReplies": "No replies yet"
+  },
+  "myFeedbackThread": {
+    "metadata": {
+      "title": "Feedback thread"
+    },
+    "back": "← All threads"
+  },
+  "notFound": {
+    "metadata": {
+      "title": "Pet not found",
+      "description": "This buddy wandered off the index. Try one of these instead."
+    },
+    "eyebrow": "Error 404",
+    "title": "This buddy wandered off",
+    "body": "The page you tried to reach isn't in the index. Could be a typo, a withdrawn submission, or a buddy that hasn't been approved yet. Try one of these instead.",
+    "lostPetAnimated": "{name} cycling through states",
+    "caughtWandering": "Caught wandering: {name}",
+    "browsePets": "Browse {count}+ buddies",
+    "browseGallery": "Browse the gallery",
+    "about": "About Blockchain Buddies",
+    "submit": "Submit a buddy",
+    "featuredEyebrow": "Try a featured one",
+    "featuredTitle": "Buddies that are definitely here",
+    "featuredPetAnimated": "{name} animated",
+    "terminalEyebrow": "Or install one from the terminal"
+  },
+  "leaderboard": {
+    "metadata": {
+      "title": "Blockchain Buddies leaderboard",
+      "description": "Top creators on Blockchain Buddies — most buddies approved, most loved, most installed."
+    },
+    "eyebrow": "Top creators",
+    "title": "Blockchain Buddies leaderboard",
+    "subtitle": "The artists shipping the most buddies, getting the most love, and landing the most installs. Updated live.",
+    "categoryAria": "Leaderboard category",
+    "secondaryStats": {
+      "pets": "buddies",
+      "likes": "likes",
+      "installs": "installs"
+    },
+    "tabs": {
+      "pets": {
+        "label": "Most buddies",
+        "unit": "approved",
+        "blurb": "Creators ranked by approved buddies in the catalog.",
+        "empty": "No approved submissions yet."
+      },
+      "likes": {
+        "label": "Most loved",
+        "unit": "likes",
+        "blurb": "Total likes earned across every buddy a creator has shipped.",
+        "empty": "Nobody's buddies have collected likes yet."
+      },
+      "installs": {
+        "label": "Most installed",
+        "unit": "installs",
+        "blurb": "Total CLI installs aggregated across a creator's buddies.",
+        "empty": "No installs recorded yet."
+      },
+      "rising": {
+        "label": "Rising",
+        "unit": "this week",
+        "blurb": "Buddies approved in the last 7 days. Caught fire? Ship more.",
+        "empty": "No new buddies approved this week."
+      }
+    }
+  },
+  "claim": {
+    "cta": "Sign in to claim",
+    "body": "Is this your pet, <strong>{author}</strong>? Sign in with GitHub to claim {petName}, edit details, and track installs."
+  },
+  "submittedBy": {
+    "eyebrow": "Submitted by",
+    "viewProfile": "View {name}'s profile"
+  },
+  "installCommand": {
+    "installStep": "1. Install",
+    "activateStep": "2. Activate in OpenClawd",
+    "dropsInto": "Drops the buddy pack into",
+    "methodAria": "Install method",
+    "platformAria": "Install platform",
+    "tabs": {
+      "cli": "CLI"
+    },
+    "steps": {
+      "openCodex": "Open OpenClawd,",
+      "insideCodex": "inside OpenClawd to wake or tuck it away.",
+      "andClick": "and click",
+      "use": "Use",
+      "findPet": "Find <strong>{displayName}</strong> under"
+    }
+  },
+  "commandLine": {
+    "copyAria": "Copy command"
+  },
+  "petActions": {
+    "moreActions": "More actions for {name}",
+    "share": "Share",
+    "closeMenu": "Close menu",
+    "copiedInstall": "Copied install",
+    "copyInstall": "Copy install",
+    "copiedLink": "Copied link",
+    "copyPageLink": "Copy page link",
+    "shareToX": "Share to X",
+    "shareToLinkedIn": "Share to LinkedIn",
+    "more": "More…",
+    "downloadZip": "Download ZIP"
+  },
+  "petStateViewer": {
+    "eyebrow": "State viewer",
+    "frames": "{count} frames",
+    "rowFrames": "Row {row} - {count} frames",
+    "animationLabel": "{petName} {state} animation",
+    "states": {
+      "idle": {
+        "label": "Idle",
+        "purpose": "Neutral breathing and blinking loop"
+      },
+      "running-right": {
+        "label": "Run Right",
+        "purpose": "Directional locomotion to the right"
+      },
+      "running-left": {
+        "label": "Run Left",
+        "purpose": "Directional locomotion to the left"
+      },
+      "waving": {
+        "label": "Waving",
+        "purpose": "Greeting or attention gesture"
+      },
+      "jumping": {
+        "label": "Jumping",
+        "purpose": "Anticipation, lift, peak, descent, settle"
+      },
+      "failed": {
+        "label": "Failed",
+        "purpose": "Readable error or sad reaction"
+      },
+      "waiting": {
+        "label": "Waiting",
+        "purpose": "Patient idle variant"
+      },
+      "running": {
+        "label": "Running",
+        "purpose": "Generic in-place run loop"
+      },
+      "review": {
+        "label": "Review",
+        "purpose": "Focused inspecting or thinking loop"
+      }
+    }
+  },
+  "pet": {
+    "navigation": {
+      "ariaLabel": "Dex navigation",
+      "shuffleTitle": "Shuffle to a random buddy (Space)"
+    },
+    "keyboardHint": {
+      "tip": "Tip:",
+      "browse": "browse",
+      "shuffle": "shuffle"
+    },
+    "stats": {
+      "title": "Dex stats",
+      "ariaLabel": "Pet stats radar chart",
+      "vibrance": "VIBRANCE",
+      "popularity": "POPULARITY",
+      "loved": "LOVED",
+      "freshness": "FRESHNESS"
+    }
+  }
+}
