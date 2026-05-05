@@ -624,7 +624,7 @@ async function cmdSubmit(args: string[]) {
 
   if (candidates.length > 1) {
     const proceed = await p.confirm({
-      message: `Submit all ${pc.bold(String(candidates.length))} pets?`,
+      message: `Submit all ${pc.bold(String(candidates.length))} buddies?`,
     });
     if (p.isCancel(proceed) || !proceed) {
       p.cancel("Aborted.");

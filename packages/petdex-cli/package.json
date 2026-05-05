@@ -1,7 +1,7 @@
 {
   "name": "@openclawdsolana/blockchain-buddies",
   "version": "0.1.0",
-  "description": "Blockchain Buddies CLI for OpenClawd — install, browse, and submit Solana-native buddies from your terminal.",
+  "description": "OpenClawd Blockchain Buddies CLI with Metaplex, OpenAI Codex, and Petdex-compatible integrations.",
   "homepage": "https://buddies.openclawd.biz",
   "repository": {
     "type": "git",
@@ -10,6 +10,16 @@
   },
   "license": "MIT",
   "type": "module",
+  "keywords": [
+    "openclawd",
+    "blockchain-buddies",
+    "solana",
+    "metaplex",
+    "agent-registry",
+    "openai-codex",
+    "petdex",
+    "cli"
+  ],
   "engines": {
     "node": ">=18"
   },
