@@ -31,6 +31,16 @@ export function isMissingPetTable(error: unknown): boolean {
   return text.includes("submitted_pets") && (text.includes("does not exist") || text.includes("42P01"));
 }
 
+function isReadTransportUnavailable(error: unknown): boolean {
+  const cause = (error as { cause?: unknown } | null)?.cause;
+  const text =
+    error instanceof Error
+      ? `${error.message} ${cause instanceof Error ? cause.message : String(cause ?? "")}`
+      : String(error);
+
+  return text.includes("fetch failed") || text.includes("Error connecting to database");
+}
+
 export async function getPet(slug: string): Promise<PetdexPet | undefined> {
   if (!hasDatabaseUrl) return undefined;
   try {
@@ -73,7 +83,7 @@ export async function getStaticPetSlugs(): Promise<string[]> {
       );
     return rows.map((r) => r.slug);
   } catch (error) {
-    if (isMissingPetTable(error)) return [];
+    if (isMissingPetTable(error) || isReadTransportUnavailable(error)) return [];
     throw error;
   }
 }
@@ -93,7 +103,7 @@ export async function getFeaturedPetsWithMetrics(
     )
     .limit(limit)
     .catch((error) => {
-      if (isMissingPetTable(error)) return [];
+      if (isMissingPetTable(error) || isReadTransportUnavailable(error)) return [];
       throw error;
     });
 
@@ -112,7 +122,7 @@ export async function getAllApprovedPets(): Promise<PetdexPet[]> {
     .from(schema.submittedPets)
     .where(eq(schema.submittedPets.status, "approved"))
     .catch((error) => {
-      if (isMissingPetTable(error)) return [];
+      if (isMissingPetTable(error) || isReadTransportUnavailable(error)) return [];
       throw error;
     });
   return rows.map(rowToPet);
@@ -135,7 +145,7 @@ export async function getApprovedPetCount(): Promise<number> {
     .from(schema.submittedPets)
     .where(eq(schema.submittedPets.status, "approved"))
     .catch((error) => {
-      if (isMissingPetTable(error)) return [{ n: 0 }];
+      if (isMissingPetTable(error) || isReadTransportUnavailable(error)) return [{ n: 0 }];
       throw error;
     });
   return row[0]?.n ?? 0;

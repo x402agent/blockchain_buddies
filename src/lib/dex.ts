@@ -17,6 +17,7 @@ import { cache } from "react";
 import { sql } from "drizzle-orm";
 
 import { db } from "@/lib/db/client";
+import { isMissingPetTable } from "@/lib/pets";
 
 export type DexEntry = { slug: string; dexNumber: number };
 
@@ -24,15 +25,20 @@ export type DexEntry = { slug: string; dexNumber: number };
 // one request returns the same Map without re-querying.
 export const getDexNumberMap = cache(
   async (): Promise<Map<string, number>> => {
-    const result = (await db.execute(sql`
-      SELECT slug,
-             ROW_NUMBER() OVER (ORDER BY approved_at ASC, created_at ASC)::int AS dex_number
-      FROM submitted_pets
-      WHERE status = 'approved'
-        AND source <> 'discover'
-    `)) as unknown as {
-      rows: Array<{ slug: string; dex_number: number }>;
-    };
+    const result = (await db
+      .execute(sql`
+        SELECT slug,
+               ROW_NUMBER() OVER (ORDER BY approved_at ASC, created_at ASC)::int AS dex_number
+        FROM submitted_pets
+        WHERE status = 'approved'
+          AND source <> 'discover'
+      `)
+      .catch((error) => {
+        if (isMissingPetTable(error)) return { rows: [] };
+        throw error;
+      })) as unknown as {
+        rows: Array<{ slug: string; dex_number: number }>;
+      };
 
     const out = new Map<string, number>();
     for (const row of result.rows) {
