@@ -15,6 +15,7 @@ import {
 import { readShuffleSeed } from "@/lib/shuffle-seed";
 
 import { CommandLine } from "@/components/command-line";
+import { E2BCodexTerminal } from "@/components/e2b-codex-terminal";
 import { JsonLd } from "@/components/json-ld";
 import { PetGallery } from "@/components/pet-gallery";
 import { PetSprite } from "@/components/pet-sprite";
@@ -139,6 +140,14 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <E2BCodexTerminal
+        buddies={heroPets.map((pet) => ({
+          slug: pet.slug,
+          displayName: pet.displayName,
+          kind: pet.kind,
+        }))}
+      />
 
       <section
         id="gallery"

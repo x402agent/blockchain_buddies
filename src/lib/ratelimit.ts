@@ -74,6 +74,14 @@ export const cliVerifyRatelimit = new Ratelimit({
   prefix: "petdex:cli-verify",
 });
 
+// E2B sandboxes are a paid runtime, so the browser terminal is tightly
+// capped by IP even though it also has a same-origin guard.
+export const e2bCodexRatelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(5, "1 h"),
+  prefix: "petdex:e2b-codex",
+});
+
 // Owner edits to displayName/description/tags. Generous within the day so
 // the owner can iterate copy, but caps a malicious loop that floods the
 // admin queue with edit churn. Keyed by petId.
